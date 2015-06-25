@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/troops2devs/minutes.png?label=ready&title=Ready)](https://waffle.io/troops2devs/minutes)
 # Minutes
 
 > Minutes is a simple app that allows resource teachers to track and log the minutes they serve their students on a weekly basis.
