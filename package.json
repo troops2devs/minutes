@@ -1,0 +1,19 @@
+{
+  "name": "minutes",
+  "version": "0.0.1",
+  "description": "An app to help resource teachers track the hours they service their students.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/troops2devs/minutes.git"
+  },
+  "author": "Omar Alvarez & John Sheedy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/troops2devs/minutes/issues"
+  },
+  "homepage": "https://github.com/troops2devs/minutes#readme"
+}
