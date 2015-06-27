@@ -1,0 +1,15 @@
+{
+  // I'm go'n get you sucka
+  "undef": true,
+  "unused": true,
+  "mocha": true,
+  "node": true,
+  "indent": 2,
+  "latedef": true,
+  "newcap": true,
+  "quotmark": true,
+  "eqeqeq": true,
+
+  // Relax yo
+  "debug": true
+}
