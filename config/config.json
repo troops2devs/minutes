@@ -4,8 +4,8 @@
     "storage": "./db/development.sqlite"
   },
   "test": {
-    "username": "root",
-    "password": null,
+    "username": process.env.DATABASE_MYSQL_USERNAME,
+    "password": process.env.DATABASE_MYSQL_PASSWORD,
     "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql"
