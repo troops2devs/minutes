@@ -30,15 +30,16 @@ __Created by__: [Omar Alvarez](http://omar-a.com) & [John Sheedy](http://jtsheed
 ## Development
 
 ### Quick Start
-1. 'npm install'
-1. 'npm start'
+1. `npm install`
+1. `npm install nodemon -g` Install nodemon for a refreshing server
+1. `npm run dev` (nodemon) or `npm start` (node)
 
-You should now be able to preview your development site at [http://localhost:3000](http://localhost:8000)
+You should now be able to preview your development site at [http://localhost:3000](http://localhost:3000)
 
 ### Installing Dependencies
 1. Install nvm and node  
-  - 'curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.25.4/install.sh | bash'
-  - 'nvm install 0.10'
+  - `curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.25.4/install.sh | bash`
+  - `nvm install 0.10`
 1. Create a local development database
   - Install the [Postgres app](http://postgresapp.com/)
   - Create the development database in the console or from the commandline
@@ -48,7 +49,7 @@ View the project roadmap [here](https://github.com/troops2devs/minutes/issues)
 
 ## Test
 Run the tests with:
-'npm test'
+`npm test`
 
 ## Contributing
 

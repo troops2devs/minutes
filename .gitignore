@@ -7,10 +7,6 @@ build
 Desktop.ini
 data
 
-# sqlite db
-db
-*.sqlite
-
 # Logs
 logs
 *.log
