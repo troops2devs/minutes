@@ -1,6 +1,5 @@
 'use strict';
 var app = require('../../app');
-var expect = require('chai').expect;
 var request = require('supertest');
 
 describe('User Routes', function() {

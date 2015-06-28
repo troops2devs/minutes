@@ -1,5 +1,4 @@
-var user = require('../models/user');
-var userCollection = require('../controllers/users');
+'use strict';
 
 var userController = {
   // GET /users
