@@ -15,21 +15,40 @@ __Created by__: [Omar Alvarez](http://omar-a.com) & [John Sheedy](http://jtsheed
 1. [Usage](#Usage)
 1. [Requirements](#requirements)
 1. [Development](#development)
+    1. [Quick Start](#quick-start)
     1. [Installing Dependencies](#installing-dependencies)
+    1. [Roadmap](#roadmap)
+1. [Test](#test)
 1. [Contributing](#contributing)
 
 ## Requirements
 
 - Node 0.10.x
-- MySQL
+- npm 2.x.x
+- Postgres 9.x.x
 
 ## Development
 
+### Quick Start
+1. 'npm install'
+1. 'npm start'
+
+You should now be able to preview your development site at [http://localhost:3000](http://localhost:8000)
+
 ### Installing Dependencies
+1. Install nvm and node  
+  - 'curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.25.4/install.sh | bash'
+  - 'nvm install 0.10'
+1. Create a local development database
+  - Install the [Postgres app](http://postgresapp.com/)
+  - Create the development database in the console or from the commandline
 
 ### Roadmap
-
 View the project roadmap [here](https://github.com/troops2devs/minutes/issues)
+
+## Test
+Run the tests with:
+'npm test'
 
 ## Contributing
 
