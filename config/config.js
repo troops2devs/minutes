@@ -10,7 +10,8 @@ module.exports = {
     dialect: "postgres",
   },
   production: {
-    database: "database_production",
-    dialect: "postgres"
+    database: process.env.DATABASE_URL,
+    dialect: "postgres",
+    protocol: "postgres"
   }
 }
