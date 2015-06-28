@@ -2,11 +2,13 @@
 
 [![Build Status](https://semaphoreci.com/api/v1/projects/f20441fe-f680-4297-b794-04fcd8b8be36/466891/badge.svg)](https://semaphoreci.com/omarca/minutes)
 
+[![Code Climate](https://codeclimate.com/repos/558fa8126956801cfd00034f/badges/e9394efe62a5880319e6/gpa.svg)](https://codeclimate.com/repos/558fa8126956801cfd00034f/feed)
+
 # Minutes
 
 > Minutes is a simple app that allows resource teachers to track and log the minutes they serve their students on a weekly basis.
 
-__Created by__: [Omar Alvarez](http://omar-a.com) & [John Sheedy](http://example.com)
+__Created by__: [Omar Alvarez](http://omar-a.com) & [John Sheedy](http://jtsheedy.branded.me)
 
 ## Table of Contents
 
