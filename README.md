@@ -33,7 +33,7 @@ __Created by__: [Omar Alvarez](http://omar-a.com) & [John Sheedy](http://jtsheed
 1. 'npm install'
 1. 'npm start'
 
-You should now be able to preview your development site at [http://localhost:3000](http://localhost:8000)
+You should now be able to preview your development site at [http://localhost:3000](http://localhost:3000)
 
 ### Installing Dependencies
 1. Install nvm and node  
