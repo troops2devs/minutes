@@ -6,7 +6,8 @@
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
     "test": "npm run test-unit",
-    "test-unit": "mocha test/unit/*.spec.js"
+    "test-unit": "mocha test/unit/*.spec.js",
+    "test-routes": "mocha test/routes/*.spec.js"
   },
   "dependencies": {
     "body-parser": "~1.12.4",
