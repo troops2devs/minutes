@@ -1,23 +1,17 @@
 module.exports = {
   development: {
-    username: "root",
-    password: null,
     database: "minutes_development",
-    host: "127.0.0.1",
-    dialect: "mysql"
+    dialect: "postgres"
   },
   test: {
     database: process.env.DATABASE_NAME_TEST,
-    username: process.env.DATABASE_MYSQL_USERNAME,
-    password: process.env.DATABASE_MYSQL_PASSWORD,
-    dialect: "mysql",
-    host: "127.0.0.1",
+    username: process.env.DATABASE_POSTGRESQL_USERNAME,
+    password: process.env.DATABASE_POSTGRESQL_PASSWORD,
+    dialect: "postgres",
   },
   production: {
-    username: "root",
-    password: null,
-    database: "database_production",
-    host: "127.0.0.1",
-    dialect: "mysql"
+    database: process.env.DATABASE_URL,
+    dialect: "postgres",
+    protocol: "postgres"
   }
 }
