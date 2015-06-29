@@ -7,6 +7,9 @@ build
 Desktop.ini
 data
 
+# Environment Variables
+.env*
+
 # Logs
 logs
 *.log
