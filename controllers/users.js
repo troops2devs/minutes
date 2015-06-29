@@ -1,4 +1,5 @@
 'use strict';
+var userModel = require('../models').User;
 
 var userController = {
   // GET /users
@@ -13,7 +14,9 @@ var userController = {
 
   // POST /users
   saveUser: function(req, res, next) {
-    res.status(201).json({});
+    userModel.create(req.body).then(function(user) {
+      res.status(201).json(user);
+    });
   },
 
   // PUT /users/:id
