@@ -22,11 +22,21 @@ describe('User Routes', function() {
   });
 
   it('GET /users/:id', function(done) {
-    request(app)
-      .get('/api/users/1')
-      .set('Accept', 'application/json')
-      .expect('Content-Type', /json/)
-      .expect(200, done);
+    this.models.User.create({username: 'mr_x', name: 'Mr. X'}).then(function(user) {
+      request(app)
+        .get('/api/users/'+user.id)
+        .set('Accept', 'application/json')
+        .expect('Content-Type', /json/)
+        .end(function(err, res) {
+          if (err) {
+            console.log(err);
+            return done(err);
+          }
+          expect(res.body.name).to.eql('Mr. X');
+          expect(res.body.username).to.eql('mr_x');
+          done();
+        });
+      });
   });
 
   it('POST /users', function(done) {

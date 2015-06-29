@@ -9,7 +9,9 @@ var userController = {
 
   // GET /users/:id
   getUser: function(req, res, next) {
-    res.status(200).json({});
+    userModel.findById(req.params.id).then(function(user) {
+      res.status(200).json(user);
+    });
   },
 
   // POST /users
