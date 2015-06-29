@@ -6,7 +6,7 @@ module.exports = {
       'Users',
       'password_hash',
       {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(1234),
         allowNull: false
       }
     );

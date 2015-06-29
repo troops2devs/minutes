@@ -15,9 +15,9 @@ describe('User Routes', function() {
 
   it('GET /users', function(done) {
     this.models.User.bulkCreate([
-      { username: 'mr_k', name: 'Mr. K' },
-      { username: 'barney', name: 'Barney' },
-      { username: 'jim', name: 'Jim' }
+      { username: 'mr_k', name: 'Mr. K', salt: 'abc', password_hash: '123' },
+      { username: 'barney', name: 'Barney', salt: 'abc', password_hash: '123' },
+      { username: 'jim', name: 'Jim', salt: 'abc', password_hash: '123' }
     ]).then(function() {
       request(app)
         .get('/api/users')
@@ -35,7 +35,7 @@ describe('User Routes', function() {
   });
 
   it('GET /users/:id', function(done) {
-    this.models.User.create({username: 'mr_x', name: 'Mr. X'}).then(function(user) {
+    this.models.User.create({username: 'mr_x', name: 'Mr. X', salt: 'abc', password_hash: '123'}).then(function(user) {
       request(app)
         .get('/api/users/'+user.id)
         .set('Accept', 'application/json')
@@ -57,7 +57,9 @@ describe('User Routes', function() {
       .post('/api/users')
       .send({
         name: 'Mr.T',
-        username: 'mr_t'
+        username: 'mr_t',
+        password_hash: '123',
+        salt: 'abc'
       })
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
@@ -73,7 +75,7 @@ describe('User Routes', function() {
   });
 
   it('PUT /users/:id', function(done) {
-    this.models.User.create({username: 'mr_x', name: 'Mr. X'}).then(function(user) {
+    this.models.User.create({username: 'mr_x', name: 'Mr. X', salt: 'abc', password_hash: '123'}).then(function(user) {
       request(app)
         .put('/api/users/'+user.id)
         .send({username: 'gerald', name: 'Gerald'})
@@ -92,7 +94,7 @@ describe('User Routes', function() {
   });
 
   it('DELETE /users/1', function(done) {
-    this.models.User.create({username: 'mr_x', name: 'Mr. X'}).then(function(user) {
+    this.models.User.create({username: 'mr_x', name: 'Mr. X', salt: 'abc', password_hash: '123'}).then(function(user) {
       request(app)
         .delete('/api/users/'+user.id)
         .set('Accept', 'application/json')
