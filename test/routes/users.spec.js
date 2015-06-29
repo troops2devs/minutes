@@ -14,11 +14,24 @@ describe('User Routes', function() {
   });
 
   it('GET /users', function(done) {
-    request(app)
-      .get('/api/users')
-      .set('Accept', 'application/json')
-      .expect('Content-Type', /json/)
-      .expect(200, done);
+    this.models.User.bulkCreate([
+      { username: 'mr_k', name: 'Mr. K' },
+      { username: 'barney', name: 'Barney' },
+      { username: 'jim', name: 'Jim' }
+    ]).then(function() {
+      request(app)
+        .get('/api/users')
+        .set('Accept', 'application/json')
+        .expect('Content-Type', /json/)
+        .end(function(err, res) {
+          if (err) {
+            console.log(err);
+            return done(err);
+          }
+          expect(res.body.length).to.eql(3);
+          done();
+        });
+    });
   });
 
   it('GET /users/:id', function(done) {
@@ -59,19 +72,39 @@ describe('User Routes', function() {
       });
   });
 
-  it('PUT /users/1', function(done) {
-    request(app)
-      .put('/api/users/1')
-      .set('Accept', 'application/json')
-      .expect('Content-Type', /json/)
-      .expect(200, done);
+  it('PUT /users/:id', function(done) {
+    this.models.User.create({username: 'mr_x', name: 'Mr. X'}).then(function(user) {
+      request(app)
+        .put('/api/users/'+user.id)
+        .send({username: 'gerald', name: 'Gerald'})
+        .set('Accept', 'application/json')
+        .expect('Content-Type', /json/)
+        .end(function(err, res) {
+          if (err) {
+            console.log(err);
+            return done(err);
+          }
+          expect(res.body.name).to.eql('Gerald');
+          expect(res.body.username).to.eql('gerald');
+          done();
+        });
+    });
   });
 
   it('DELETE /users/1', function(done) {
-    request(app)
-      .delete('/api/users/1')
-      .set('Accept', 'application/json')
-      .expect('Content-Type', /json/)
-      .expect(200, done);
+    this.models.User.create({username: 'mr_x', name: 'Mr. X'}).then(function(user) {
+      request(app)
+        .delete('/api/users/'+user.id)
+        .set('Accept', 'application/json')
+        .expect('Content-Type', /json/)
+        .end(function(err, res) {
+          if (err) {
+            console.log(err);
+            return done(err);
+          }
+          expect(res.body.length).to.eql(0);
+          done();
+        });
+    });
   });
 });
