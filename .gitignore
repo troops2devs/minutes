@@ -6,7 +6,9 @@ npm-debug.log
 build
 Desktop.ini
 data
-public/javascripts/*
+bundle.js
+
+bower_components
 
 # Environment Variables
 .env*
