@@ -30,9 +30,13 @@
   "devDependencies": {
     "bower": "^1.4.1",
     "chai": "^3.0.0",
+    "css-loader": "^0.15.1",
     "handlebars-loader": "^1.0.2",
     "jshint": "^2.8.0",
+    "less": "^2.5.1",
+    "less-loader": "^2.2.0",
     "mocha": "^2.2.5",
+    "style-loader": "^0.12.3",
     "supertest": "^1.0.1",
     "webpack": "^1.10.0",
     "webpack-dev-middleware": "^1.2.0"
