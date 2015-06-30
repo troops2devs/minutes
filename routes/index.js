@@ -7,12 +7,11 @@ router.get('/', function (req, res) {
 });
 
 router.get('/setup', function(req, res) {
-  var user = User.build({
+  User.create({
     name: 'tom',
-    username: 'tomcat'
-  });
-  user.password = 'abc123';
-  user.save().then(function(user) {
+    username: 'tomcat',
+    password: 'abc123'
+  }).then(function(user) {
     console.log('User saved successfully');
     res.json(user);
   });
