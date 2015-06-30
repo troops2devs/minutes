@@ -1,17 +1,11 @@
-{{#unless user}}
-  <a href="/login">
-    Login
-  </a>
-  <br>
-  <a href="/register">
-    Register
-  </a>
-{{/unless}}
-{{#if user}}
-  <p>
-    You are currently logged in as {{user.username}}
-  </p>
-  <a href="/logout">
-    Logout
-  </a>
-{{/if}}
+<div class="banner">
+  <div class="container">
+    <div class="clear">
+      <h1 class="logo">Minutes</h1>
+      <ul class="list-inline nav-list">
+        <li><a href="/login">Login</a></li>
+        <li><a href="/signup">Signup</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
