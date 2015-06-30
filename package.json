@@ -28,6 +28,7 @@
     "underscore": "^1.8.3"
   },
   "devDependencies": {
+    "bower": "^1.4.1",
     "chai": "^3.0.0",
     "handlebars-loader": "^1.0.2",
     "jshint": "^2.8.0",

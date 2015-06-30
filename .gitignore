@@ -6,6 +6,7 @@ npm-debug.log
 build
 Desktop.ini
 data
+public/javascripts/*
 
 # Environment Variables
 .env*
