@@ -6,7 +6,7 @@
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
     "test": "NODE_ENV=test mocha test/**/*.spec.js",
-    "postinstall": "webpack -p"
+    "postinstall": "bower install && webpack -p"
   },
   "dependencies": {
     "backbone": "^1.2.1",
