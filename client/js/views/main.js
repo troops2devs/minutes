@@ -1,10 +1,8 @@
-var $ = require('jquery');
-var _ = require('underscore');
 var Marionette = require('backbone.marionette');
 var template = require('../../templates/main.hbs');
 var StudentView = require('./student.js');
 
-var HelloView = Marionette.CompositeView.extend({
+var MainView = Marionette.CompositeView.extend({
   tagName: 'table',
   id: 'students-list',
   template: template,
@@ -15,4 +13,4 @@ var HelloView = Marionette.CompositeView.extend({
   }
 });
 
-module.exports = HelloView;
+module.exports = MainView;
