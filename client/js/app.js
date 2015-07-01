@@ -1,6 +1,7 @@
 var Backbone = require('backbone');
 var Marionette = require('backbone.marionette');
 var ContentLayout = require('./views/content.layout');
+var HeaderLayout = require('./views/header.layout');
 
 var Minutes = new Marionette.Application();
 
@@ -20,7 +21,7 @@ Minutes.on('before:start', function() {
 // Start history when our application is ready
 Minutes.on('start', function() {
   Minutes.root.content.show(new ContentLayout());
-  // Minutes.regions.header.show(new HeaderView());
+  Minutes.root.header.show(new HeaderLayout());
   Backbone.history.start();
 });
 
