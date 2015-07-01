@@ -1,7 +1,5 @@
-var $ = require('jquery');
-var _ = require('underscore');
 var Marionette = require('backbone.marionette');
-var template = require('../../templates/header.hbs');
+var template = require('../../templates/navigation.hbs');
 
 var HeaderView = Marionette.ItemView.extend({
   template: template,
@@ -11,7 +9,7 @@ var HeaderView = Marionette.ItemView.extend({
   },
 
   showLogin: function() {
-    
+
   }
 });
 
