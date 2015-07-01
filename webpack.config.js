@@ -6,7 +6,7 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.hbs$/, loader: 'handlebars-loader' },
-      { test: /\.less$/, loader: 'style-loader!css-loader!less-loader' },
+      { test: /\.less$/, loader: 'style!css!less' },
       { test: /\.css$/, loader: 'style-loader!css-loader' }
     ]
   },
