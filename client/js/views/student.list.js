@@ -1,10 +1,9 @@
 var Marionette = require('backbone.marionette');
-var template = require('../../templates/main.hbs');
+var template = require('../../templates/student.list.hbs');
 var StudentView = require('./student.js');
 
-var MainView = Marionette.CompositeView.extend({
+var StudentList = Marionette.CompositeView.extend({
   tagName: 'table',
-  id: 'students-list',
   template: template,
   childView: StudentView,
   childViewContainer: 'tbody',
@@ -13,4 +12,4 @@ var MainView = Marionette.CompositeView.extend({
   }
 });
 
-module.exports = MainView;
+module.exports = StudentList;

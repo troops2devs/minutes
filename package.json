@@ -6,7 +6,8 @@
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
     "test": "NODE_ENV=test mocha test/**/*.spec.js",
-    "postinstall": "bower install && webpack -p"
+    "postinstall": "bower install && webpack -p",
+    "webpack": "webpack --progress --colors --watch"
   },
   "dependencies": {
     "backbone": "^1.2.1",
