@@ -8,11 +8,12 @@ Backbone.sync = function (method, model, options) {
   /*
    * "options" represents the options passed to the underlying $.ajax call
    */
-  var token = window.localStorage.getItem('token');
+  var token = window.localStorage.getItem('userToken');
 
   if (token) {
+    var auth = 'Bearer ' + localStorage.getItem('userToken');
     options.headers = {
-      'x-access-token': token
+      'Authorization': auth;
     };
   }
 
