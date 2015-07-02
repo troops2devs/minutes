@@ -17,11 +17,8 @@ $(document).ready(function() {
     e.preventDefault();
     lock.show(function(err, profile, token) {
       if (err) {
-        // Error callback
         alert('There was an error');
       } else {
-        // Success calback
-
         // Save the JWT token.
         localStorage.setItem('userToken', token);
 
@@ -29,7 +26,16 @@ $(document).ready(function() {
         userProfile = profile;
         $('#content-region').show();
         $('.login-btn').hide();
+        $('.logout-btn').show();
       }
     });
+  });
+
+  $('.logout-btn').click(function(e) {
+    e.preventDefault();
+    localStorage.removeItem('token');
+    userProfile = null;
+    $('.logout-btn').show();
+    window.location.href = "/";
   });
 });

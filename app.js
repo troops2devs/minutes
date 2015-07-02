@@ -7,15 +7,17 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cors = require('cors');
+var jwt = require('express-jwt');
 
 var routes = require('./routes/index');
 var apiRoutes = require('./api/api');
 
 var app = express();
-var jwt = require('express-jwt');
+
+// Web token auth for auth0
 var jwtCheck = jwt({
-  secret: new Buffer('aepX1hWG5PZ6zwQ4UMBaRNWD6fhev3WcenoXypRQchoLf_ZsK0r4OBjLrAcuv56S', 'base64'),
-  audience: 'yaF3AyJUIRoGeKvf3pSNwkctFK42c4NA'
+  secret: new Buffer(process.env.AUTH0_SECRET, 'base64'),
+  audience: process.AUTH0_CLIENT_ID
 });
 
 // CORS
