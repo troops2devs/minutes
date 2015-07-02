@@ -17,6 +17,7 @@
     "tests"
   ],
   "dependencies": {
-    "base": "~2.1.2"
+    "base": "~2.1.2",
+    "backbone-modal": "~1.1.5"
   }
 }

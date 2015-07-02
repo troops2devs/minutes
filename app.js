@@ -6,11 +6,22 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var cors = require('cors');
+var jwt = require('express-jwt');
 
 var routes = require('./routes/index');
 var apiRoutes = require('./api/api');
 
 var app = express();
+
+// Web token auth for auth0
+var jwtCheck = jwt({
+  secret: new Buffer(process.env.AUTH0_SECRET, 'base64'),
+  audience: process.AUTH0_CLIENT_ID
+});
+
+// CORS
+app.use(cors());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'client/views'));
@@ -25,7 +36,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/api', apiRoutes);
+
+if (app.get('env') === 'test') {
+  app.use('/api', apiRoutes);
+} else {
+  app.use('/api', jwtCheck, apiRoutes);
+}
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

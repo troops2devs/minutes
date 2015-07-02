@@ -11,5 +11,9 @@
   "eqeqeq": true,
 
   // Relax yo
-  "debug": true
+  "debug": true,
+
+  "globals" {
+    "window": true
+  }
 }

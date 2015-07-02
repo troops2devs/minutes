@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{{title}}</title>
+    <title>Minutes</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- Auth0 lock script -->
+    <script src="//cdn.auth0.com/js/lock-7.5.min.js"></script>
+    <!-- Setting the right viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   </head>
   <body>
+    <div class="modal"></div>
     <div id="app-container">
       <div id="header-region"></div>
-      <div id="content-region" class="container">
+      <div id="content-region" class="container" style="display: none;">
         <p>There is nothing to see here.</p>
       </div>
     </div>
