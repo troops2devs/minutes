@@ -7,7 +7,6 @@ Backbone.$ = $;
 require('../styles/styles.less');
 
 
-Minutes.start();
 var lock = null;
 $(document).ready(function() {
    lock = new Auth0Lock('yaF3AyJUIRoGeKvf3pSNwkctFK42c4NA', 'minutes.eu.auth0.com');
@@ -27,6 +26,7 @@ $(document).ready(function() {
         $('#content-region').show();
         $('.login-btn').hide();
         $('.logout-btn').show();
+        Minutes.start();
       }
     });
   });
