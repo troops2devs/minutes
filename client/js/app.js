@@ -4,7 +4,7 @@ var ContentLayout = require('./views/content.layout');
 
 var Minutes = new Marionette.Application();
 
-Minutes.on('before:start', function() {
+Minutes.on('before:start', function(options) {
   var RootView = Marionette.LayoutView.extend({
     el: '#app-container',
 
