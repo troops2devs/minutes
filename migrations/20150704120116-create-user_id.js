@@ -6,7 +6,7 @@ module.exports = {
       'Users',
       'user_id',
       {
-        type: Sequelize.STRING(1234),
+        type: Sequelize.STRING,
         allowNull: false
       }
     );

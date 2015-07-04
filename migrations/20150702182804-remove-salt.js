@@ -6,5 +6,12 @@ module.exports = {
   },
 
   down: function (queryInterface, Sequelize) {
+    return queryInterface.addColumn(
+      'Users',
+      'salt',
+      {
+        type: Sequelize.STRING,
+      }
+    );
   }
 };
