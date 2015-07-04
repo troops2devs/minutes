@@ -9,6 +9,21 @@ var userController = {
     });
   },
 
+  // GET /users/set
+  // sets user upon initial login
+  setUser: function(req, res) {
+    userModel.findOrCreate({
+      where: {user_id: req.query.user_id},
+      defaults: {
+        username: req.query.nickname,
+        name: req.query.name,
+        user_id: req.query.user_id
+      }
+    }).spread(function(user, created) {
+      res.status(200).json(user);
+    });
+  },
+
   // GET /users/:id
   getUser: function(req, res) {
     userModel.findById(req.params.id).then(function(user) {

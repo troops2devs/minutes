@@ -10,6 +10,7 @@ router.get('/', function(req, res) {
 
 // User routes
 router.get('/users', usersController.getUsers);
+router.get('/users/set', usersController.setUser);
 router.get('/users/:id', usersController.getUser);
 router.post('/users', usersController.saveUser);
 router.put('/users/:id', usersController.updateUser);
