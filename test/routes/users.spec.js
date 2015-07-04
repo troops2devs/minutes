@@ -15,9 +15,9 @@ describe('User Routes', function() {
 
   it('GET /users', function(done) {
     this.models.User.bulkCreate([
-      { username: 'mr_k', name: 'Mr. K' },
-      { username: 'barney', name: 'Barney' },
-      { username: 'jim', name: 'Jim' }
+      { username: 'mr_k', name: 'Mr. K', user_id: 1 },
+      { username: 'barney', name: 'Barney', user_id: 2 },
+      { username: 'jim', name: 'Jim', user_id: 3 }
     ]).then(function() {
       request(app)
         .get('/api/users')
@@ -35,7 +35,11 @@ describe('User Routes', function() {
   });
 
   it('GET /users/:id', function(done) {
-    this.models.User.create({username: 'mr_x', name: 'Mr. X'}).then(function(user) {
+    this.models.User.create({
+      username: 'mr_x',
+      name: 'Mr. X',
+      user_id: 1
+    }).then(function(user) {
       request(app)
         .get('/api/users/'+user.id)
         .set('Accept', 'application/json')
@@ -58,7 +62,7 @@ describe('User Routes', function() {
       .send({
         name: 'Mr.T',
         username: 'mr_t',
-        password: 'abc123'
+        user_id: 1
       })
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
@@ -74,7 +78,11 @@ describe('User Routes', function() {
   });
 
   it('PUT /users/:id', function(done) {
-    this.models.User.create({username: 'mr_x', name: 'Mr. X'}).then(function(user) {
+    this.models.User.create({
+      username: 'mr_x',
+      name: 'Mr. X',
+      user_id: 1
+    }).then(function(user) {
       request(app)
         .put('/api/users/'+user.id)
         .send({username: 'gerald', name: 'Gerald'})
@@ -93,7 +101,11 @@ describe('User Routes', function() {
   });
 
   it('DELETE /users/1', function(done) {
-    this.models.User.create({username: 'mr_x', name: 'Mr. X'}).then(function(user) {
+    this.models.User.create({
+      username: 'mr_x',
+      name: 'Mr. X',
+      user_id: 1
+    }).then(function(user) {
       request(app)
         .delete('/api/users/'+user.id)
         .set('Accept', 'application/json')

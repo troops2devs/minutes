@@ -22,11 +22,11 @@ $(document).ready(function() {
         localStorage.setItem('userToken', token);
 
         // Save the profile
-        userProfile = profile;
+        var user = profile;
         $('#content-region').show();
         $('.login-btn').hide();
         $('.logout-btn').show();
-        Minutes.start();
+        Minutes.start({user: user});
       }
     });
   });
