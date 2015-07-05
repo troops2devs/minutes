@@ -1,5 +1,5 @@
 'use strict';
-var crypto = require('crypto');
+
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define('User', {
     username: DataTypes.STRING,

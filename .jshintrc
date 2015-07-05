@@ -13,7 +13,7 @@
   // Relax yo
   "debug": true,
 
-  "globals" {
+  "globals": {
     "window": true
   }
 }
