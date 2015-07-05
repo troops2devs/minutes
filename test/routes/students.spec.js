@@ -4,23 +4,24 @@ var Bluebird = require('bluebird');
 var request = require('supertest');
 var expect = require('chai').expect;
 
-describe('User Routes', function() {
+describe('Student Routes', function() {
   beforeEach(function () {
     this.models = require('../../models');
 
     return Bluebird.all([
-      this.models.User.destroy({ truncate: true, cascade: true })
+      this.models.Student.destroy({ truncate: true, cascade: true })
     ]);
+
   });
 
-  it('GET /users', function(done) {
-    this.models.User.bulkCreate([
-      { username: 'mr_k', name: 'Mr. K', user_id: 1 },
-      { username: 'barney', name: 'Barney', user_id: 2 },
-      { username: 'jim', name: 'Jim', user_id: 3 }
+  it('GET /students', function(done) {
+    this.models.Student.bulkCreate([
+      { name: 'johnny', timeReq: 90 },
+      { name: 'rufus', timeReq: 90 },
+      { name: 'bobby', timeReq: 90 }
     ]).then(function() {
       request(app)
-        .get('/api/users')
+        .get('/api/students')
         .set('Accept', 'application/json')
         .expect('Content-Type', /json/)
         .end(function(err, res) {
@@ -34,14 +35,13 @@ describe('User Routes', function() {
     });
   });
 
-  it('GET /users/:id', function(done) {
-    this.models.User.create({
-      username: 'mr_x',
-      name: 'Mr. X',
-      user_id: 1
+  it('GET /students/:id', function(done) {
+    this.models.Student.create({
+      name: 'bobby',
+      timeReq: 90
     }).then(function(user) {
       request(app)
-        .get('/api/users/'+user.id)
+        .get('/api/students/'+user.id)
         .set('Accept', 'application/json')
         .expect('Content-Type', /json/)
         .end(function(err, res) {
@@ -49,20 +49,18 @@ describe('User Routes', function() {
             console.log(err);
             return done(err);
           }
-          expect(res.body.name).to.eql('Mr. X');
-          expect(res.body.username).to.eql('mr_x');
+          expect(res.body.name).to.eql('bobby');
           done();
         });
       });
   });
 
-  it('POST /users', function(done) {
+  it('POST /students', function(done) {
     request(app)
-      .post('/api/users')
+      .post('/api/students')
       .send({
-        name: 'Mr.T',
-        username: 'mr_t',
-        user_id: 1
+        name: 'bobby',
+        timeReq: 90
       })
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
@@ -71,21 +69,19 @@ describe('User Routes', function() {
           console.log(err);
           return done(err);
         }
-        expect(res.body.name).to.eql('Mr.T');
-        expect(res.body.username).to.eql('mr_t');
+        expect(res.body.name).to.eql('bobby');
         done();
       });
   });
 
-  it('PUT /users/:id', function(done) {
-    this.models.User.create({
-      username: 'mr_x',
-      name: 'Mr. X',
-      user_id: 1
+  it('PUT /students/:id', function(done) {
+    this.models.Student.create({
+      name: 'bobby',
+      timeReq: 90
     }).then(function(user) {
       request(app)
-        .put('/api/users/'+user.id)
-        .send({username: 'gerald', name: 'Gerald'})
+        .put('/api/students/'+user.id)
+        .send({name: 'Gerald'})
         .set('Accept', 'application/json')
         .expect('Content-Type', /json/)
         .end(function(err, res) {
@@ -94,20 +90,18 @@ describe('User Routes', function() {
             return done(err);
           }
           expect(res.body.name).to.eql('Gerald');
-          expect(res.body.username).to.eql('gerald');
           done();
         });
     });
   });
 
-  it('DELETE /users/1', function(done) {
-    this.models.User.create({
-      username: 'mr_x',
-      name: 'Mr. X',
-      user_id: 1
+  it('DELETE /students/1', function(done) {
+    this.models.Student.create({
+      name: 'bobby',
+      timeReq: 90
     }).then(function(user) {
       request(app)
-        .delete('/api/users/'+user.id)
+        .delete('/api/students/'+user.id)
         .set('Accept', 'application/json')
         .expect('Content-Type', /json/)
         .end(function(err, res) {
