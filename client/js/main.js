@@ -23,6 +23,7 @@ $(document).ready(function() {
 
         // Save the profile
         var user = profile;
+        $('.home-container').hide();
         $('#content-region').show();
         $('.login-btn').hide();
         $('.logout-btn').show();
