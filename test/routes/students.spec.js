@@ -5,13 +5,14 @@ var request = require('supertest');
 var expect = require('chai').expect;
 
 describe('Student Routes', function() {
-  beforeEach(function () {
+  beforeEach(function (done) {
     this.models = require('../../models');
 
     return Bluebird.all([
       this.models.Student.destroy({ truncate: true, cascade: true })
-    ]);
-
+    ]).then(function() {
+      done();
+    });
   });
 
   it('GET /students', function(done) {
