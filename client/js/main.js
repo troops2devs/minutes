@@ -33,6 +33,7 @@ $(document).ready(function() {
       } else {
         // Save the JWT token.
         window.localStorage.setItem('userToken', token);
+        window.localStorage.setItem('userId', profile.user_id);
 
         showContent(profile);
       }

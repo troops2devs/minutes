@@ -10,7 +10,8 @@ var User = Backbone.Model.extend({
   },
 
   initialize: function(user) {
-    if (!window.localStorage.getItem('userToken')) {
+    var userId = window.localStorage.getItem('userId');
+    if (!userId) {
       this.setUser(user);
     }
   },
