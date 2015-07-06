@@ -5,8 +5,7 @@ module.exports = function(sequelize, DataTypes) {
     timeReq: DataTypes.INTEGER,
   }, {
     classMethods: {
-      associate: function(models) {
-        Student.belongsTo(models.User, { foreignKey: 'userId'} )
+      associate: function() {
       }
     }
   });
