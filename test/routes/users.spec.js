@@ -9,7 +9,7 @@ describe('User Routes', function() {
     this.models = require('../../models');
 
     return Bluebird.all([
-      this.models.User.destroy({ truncate: true })
+      this.models.User.destroy({ truncate: true, cascade: true })
     ]);
   });
 

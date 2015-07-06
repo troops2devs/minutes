@@ -19,7 +19,7 @@ var userController = {
         name: req.query.name,
         user_id: req.query.user_id
       }
-    }).spread(function(user, created) {
+    }).spread(function(user) {
       res.status(200).json(user);
     });
   },

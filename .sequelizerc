@@ -1,5 +1,4 @@
 var path = require('path');
-require('dotenv').load(); // Load .env files from root based on the NODE_ENV value
 
 module.exports = {
   'config': path.resolve('db', 'config.js')
