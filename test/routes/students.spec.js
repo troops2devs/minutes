@@ -9,6 +9,7 @@ describe('Student Routes', function() {
     this.models = require('../../models');
 
     return Bluebird.all([
+      this.models.User.destroy({ truncate: true, cascade: true }),
       this.models.Student.destroy({ truncate: true, cascade: true })
     ]);
   });
