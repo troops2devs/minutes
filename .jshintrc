@@ -12,6 +12,8 @@
 
   // Relax yo
   "debug": true,
+  "expr": true,
+  "es5": true,
 
   "globals": {
     "window": true,
