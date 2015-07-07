@@ -8,6 +8,7 @@ require('../styles/styles.less');
 
 
 var lock = null;
+var userProfile;
 $(document).ready(function() {
 
   var showContent = function(profile) {
@@ -18,7 +19,7 @@ $(document).ready(function() {
     Minutes.start({user: profile});
   };
 
-  if (localStorage.getItem('userToken')) {
+  if (window.localStorage.getItem('userToken')) {
     showContent();
   }
 
@@ -28,10 +29,11 @@ $(document).ready(function() {
     e.preventDefault();
     lock.show(function(err, profile, token) {
       if (err) {
-        alert('There was an error');
+        alert('There was an error logging in');
       } else {
         // Save the JWT token.
-        localStorage.setItem('userToken', token);
+        window.localStorage.setItem('userToken', token);
+        window.localStorage.setItem('userId', profile.user_id);
 
         showContent(profile);
       }
@@ -40,8 +42,8 @@ $(document).ready(function() {
 
   $('.logout-btn').click(function(e) {
     e.preventDefault();
-    localStorage.removeItem('userToken');
-    window.location.href = "/";
+    window.localStorage.removeItem('userToken');
+    window.location.href = '/';
     userProfile = null;
     $('.login-btn').show();
     $('.logout-btn').hide();
