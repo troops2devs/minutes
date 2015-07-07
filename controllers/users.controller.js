@@ -1,17 +1,19 @@
 'use strict';
 var userModel = require('../models').User;
+var userService = require('../services/user.service');
 
 var userController = {
   // GET /users
   getUsers: function(req, res) {
-    userModel.findAll().then(function(users) {
-      res.status(200).json(users);
+    userService.getUsers(function(users) {
+      res.status(200);
+      res.json(users);
     });
   },
 
   // GET /users/set
   // sets user upon initial login
-  setUser: function(req, res) {
+  setUser: function(req, res, next) {
     userModel.findOrCreate({
       where: {user_id: req.query.user_id},
       defaults: {
@@ -19,15 +21,18 @@ var userController = {
         name: req.query.name,
         user_id: req.query.user_id
       }
-    }).spread(function(user) {
-      res.status(200).json(user);
+    }).then(function(user) {
+      res.status(200);
+      req.user = user;
+      next();
     });
   },
 
   // GET /users/:id
   getUser: function(req, res) {
-    userModel.findById(req.params.id).then(function(user) {
-      res.status(200).json(user);
+    userService.getUser(req.params.id, function(user) {
+      res.status(200);
+      res.json(user);
     });
   },
 
