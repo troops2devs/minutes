@@ -17,7 +17,7 @@
     "tests"
   ],
   "dependencies": {
-    "base": "~2.1.2",
-    "backbone-modal": "~1.1.5"
+    "backbone-modal": "~1.1.5",
+    "material-design-lite": "~1.0.0"
   }
 }

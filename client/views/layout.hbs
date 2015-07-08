@@ -2,8 +2,11 @@
 <html>
   <head>
     <title>Minutes</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.blue-red.min.css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico" type="text/css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel='stylesheet' href='/stylesheets/style.css'>
     <!-- Auth0 lock script -->
     <script src="//cdn.auth0.com/js/lock-7.5.min.js"></script>
     <!-- Setting the right viewport -->
@@ -11,20 +14,32 @@
   </head>
   <body>
     <div class="modal"></div>
-    <div id="navigation">
-      <div class="banner">
-        <div class="container">
-          <div class="clear">
-            <h1 class="logo">Minutes</h1>
-            <ul class="list-inline nav-list">
-              <li><a href="#" class="login-btn">Login</a></li>
-              <li><a href="#" class="logout-btn" style="display: none;">Logout</a></li>
-            </ul>
-          </div>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          {{!-- Title --}}
+          <span class="mdl-layout-title">Minutes</span>
+          <div class="mdl-layout-spacer"></div>
+          <nav class="mdl-navigation mdl-layout--large-screen-only">
+            <a class="mdl-navigation__link login-btn" href="">Login</a>
+            <a class="mdl-navigation__link logout-btn" href="" style="display: none;">Logout</a>
+          </nav>
         </div>
+      </header>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Title</span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="">Login</a>
+          <a class="mdl-navigation__link" href="">Logout</a>
+        </nav>
       </div>
+      <main class="mdl-layout__content">
+        <div class="page-content">
+          {{{body}}}
+        </div>
+      </main>
     </div>
-    {{{body}}}
     <script src='/javascripts/bundle.js'></script>
+    <script src='/material-design-lite/material.js'></script>
   </body>
 </html>
