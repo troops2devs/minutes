@@ -38,26 +38,26 @@ var userController = {
 
   // POST /users
   saveUser: function(req, res) {
-    userModel.create(req.body).then(function(user) {
-      res.status(201).json(user);
+    userService.saveUser(req.body, function(user) {
+      res.status(201);
+      res.json(user);
     });
   },
 
   // PUT /users/:id
   updateUser: function(req, res) {
-    userModel.findById(req.params.id).then(function(user) {
-      user.updateAttributes(req.body).then(function(user) {
-        res.status(200).json(user);
-      });
+    req.body.id = req.params.id;
+    userService.updateUser(req.body, function(user) {
+      res.status(200);
+      res.json(user);
     });
   },
 
   // DELETE /users
   deleteUser: function(req, res) {
-    userModel.findById(req.params.id).then(function(user) {
-      user.destroy().then(function() {
-        res.status(200).json();
-      });
+    userService.deleteUser(req.params.id, function() {
+      res.status(200);
+      res.json();
     });
   }
 };
