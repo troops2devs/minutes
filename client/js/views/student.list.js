@@ -6,6 +6,7 @@ var Student = require('../models/student');
 
 var StudentList = Marionette.CompositeView.extend({
   tagName: 'table',
+  className: 'student-list mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp',
   template: template,
   childView: StudentView,
   childViewContainer: 'tbody',
